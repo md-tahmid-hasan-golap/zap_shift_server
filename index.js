@@ -45,10 +45,24 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
+    // zap shift coollection
+    const zapShiftCollection = client.db("zapShift").collection("parcels");
 
 
+     
 
+    app.post("/parcels", async (req, res) => {
+      const newparcel = req.body;
+      const result = await zapShiftCollection.insertOne(newparcel);
+      res.send(result);
+    });
 
+    
+   app.get("/allParcel", async (req, res) => {
+    
+      const result = await zapShiftCollection.find().toArray();
+      res.send(result);
+    });
 
 
 
