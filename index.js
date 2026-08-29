@@ -57,12 +57,12 @@ async function run() {
       res.send(result);
     });
 
+
+  //  app.get("/allParcel", async (req, res) => {
     
-   app.get("/allParcel", async (req, res) => {
-    
-      const result = await zapShiftCollection.find().toArray();
-      res.send(result);
-    });
+  //     const result = await zapShiftCollection.find().toArray();
+  //     res.send(result);
+  //   });
 
 
 
